@@ -8,7 +8,7 @@
   "private": true,
   "main": "src/server.js",
   "config": {
-    "PROJECT_ID": "[my-project]",
+    "PROJECT_ID": "smithery-1562771139878",
     "APP_NAME": "node-hn-app",
     "APP_NAMESPACE": "default",
     "CLUSTER_NAME": "hn-app-demo",
