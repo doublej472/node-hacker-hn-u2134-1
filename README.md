@@ -39,6 +39,29 @@ The coverage report can be viewed in the demo app:
 
 ---
 
+## Configure the repo and build settings for GCP
+- Update the **package.json** and **cloudbuild.yaml** file to have the same parameters
+- Update at least the `PROJECT_ID` value for **package.json** using one of the methods below
+   - Go to the console [dashboard page](https://console.cloud.google.com/home) and open the projects drop-down on the top bar to list all your projects
+   - Run `gcloud projects list` and copy the project id value for your desired project.
+```json
+"config": {
+  "PROJECT_ID": "[my-project]",
+  "APP_NAME": "node-hn-app",
+  "APP_NAMESPACE": "default",
+  "CLUSTER_NAME": "hn-app-demo",
+  "COMPUTE_REGION": "us-central1",
+  "COMPUTE_ZONE": "us-central1-a"
+}
+```
+- Update the default values in the substitution block for **cloudbuild.yaml**
+```yaml
+substitutions:
+  _APP_NAME: node-hn-app
+  _CLUSTER_NAME: hn-app-demo
+  _CLUSTER_LOCATION: us-central1-a
+```
+
 ## Helper scripts to enable GCP functionality
 
 **NOTE**: Use `npm run` to execute any of the scripts below.
@@ -48,27 +71,6 @@ The coverage report can be viewed in the demo app:
 - Run `gcp:create-cluster` to create a GKE cluster
 - Run `gcp:enable-cluster-access` to give Cloud Build access to the GKE cluster
 - Run `gcp:delete-cluster` to delete the cluster created by `gcp:create-cluster`
-
-## Configure the repo and build settings for GCP
-- Update the **package.json** and **cloudbuild.yaml** file to have the same parameters
-- Update at least the `PROJECT_ID` value for **package.json**
-```
-"config": {
-  "PROJECT_ID": "my-project",
-  "APP_NAME": "node-hn-app",
-  "APP_NAMESPACE": "default",
-  "CLUSTER_NAME": "hn-app-demo",
-  "COMPUTE_REGION": "us-central1",
-  "COMPUTE_ZONE": "us-central1-a"
-}
-```
-- Update the default values in the substitution block for **cloudbuild.yaml**
-```
-substitutions:
-  _APP_NAME: node-hn-app
-  _CLUSTER_NAME: hn-app-demo
-  _CLUSTER_LOCATION: us-central1-a
-```
 
 ## Containerize the application
 
