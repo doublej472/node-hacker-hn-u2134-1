@@ -8,12 +8,12 @@
   "private": true,
   "main": "src/server.js",
   "config": {
-    "PROJECT_ID": "smithery-1562771139878",
+    "PROJECT_ID": "uri-u2134",
     "APP_NAME": "node-hn-app",
     "APP_NAMESPACE": "default",
-    "CLUSTER_NAME": "hn-app-demo",
-    "COMPUTE_REGION": "us-central1",
-    "COMPUTE_ZONE": "us-central1-a"
+    "CLUSTER_NAME": "acme-cluster",
+    "COMPUTE_REGION": "us-west1",
+    "COMPUTE_ZONE": "us-west1-a"
   },
   "scripts": {
     "start": "node src/server.js",
